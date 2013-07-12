@@ -27,6 +27,11 @@ module Jawbone
     def sleep_quality
       return @data["sleep"]["qualities"]
     end
+    
+    def calories
+      return @data["move"]["bmr_calories_day"]
+    end
+    
   end
   
 end
