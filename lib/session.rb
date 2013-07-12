@@ -48,10 +48,10 @@ module Jawbone
     
     # requires date to be in yyyy-mm-dd format
     def daily_summary date
+      # format date
+      date = date.gsub(/\D/, '').to_i
       # assumes Pacific Time
-      response = self.class.get "https://jawbone.com/nudge/api/users/@me/healthCredits", { query:
-        { _token: @token, check_levels: 1, eat_goal: 0, sleep_goal: 0, move_goal: 0,
-        timezone: "-28800", date: date } }
+      response = self.class.get "https://jawbone.com/nudge/api/users/@me/score?date=#{date}", { headers: { "x-nudge-token" => @token  } }
       response["data"]
     end
     
