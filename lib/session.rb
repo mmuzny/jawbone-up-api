@@ -24,7 +24,7 @@ module Jawbone
     
     def feed
       response = self.class.get "https://jawbone.com/nudge/api/users/@me/social", { query:
-        { after: "null", limit: 100, _token: @token } }
+        { after: "null", limit: 100 }, headers: { "x-nudge-token" => @token  } }
       response["data"]["feed"]
     end
     
@@ -35,7 +35,7 @@ module Jawbone
     def full_sleeps
       local_sleeps = sleeps
       local_sleeps.each do |sleep|
-        response = self.class.get "https://jawbone.com/nudge/api/sleeps/#{sleep["xid"]}/snapshot", { query: { _token: @token } }
+        response = self.class.get "https://jawbone.com/nudge/api/sleeps/#{sleep["xid"]}/snapshot", { headers: { "x-nudge-token" => @token  } }
         data = response["data"]
         sleep[:full_data] = data
       end
