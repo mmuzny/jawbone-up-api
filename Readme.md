@@ -1,4 +1,4 @@
-Ruby wrapper for the [unofficial Jawbone UP API](http://eric-blue.com/projects/up-api/). 
+Ruby wrapper for the [unofficial Jawbone UP API](http://eric-blue.com/projects/up-api/), updated using [new unofficial documentation](https://niklaslindblad.se/2013/07/jawbone-up-api-updates/).
 
 Work in progress. 
 
@@ -23,7 +23,7 @@ Average time it takes you to fall asleep:
 
 Daily Summary:
 
-    summary = Jawbone::DailySummary.new(s.daily_summary "2011-12-29")
+    summary = Jawbone::DailySummary.new(s.daily_summary "2013-07-11")
 
     $> summary.steps
     => 13007
@@ -33,3 +33,6 @@ Daily Summary:
 
     $> summary.kilometers
     => 16.314
+
+    $> summary.calories
+    => 1903.30
