@@ -24,7 +24,7 @@ module Jawbone
     
     def feed
       response = self.class.get "https://jawbone.com/nudge/api/users/@me/social", { query:
-        { after: "null", limit: 100 }, headers: { "x-nudge-token" => @token  } }
+        { after: "null", limit: 20 }, headers: { "x-nudge-token" => @token  } }
       response["data"]["feed"]
     end
     
